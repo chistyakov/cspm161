@@ -3,7 +3,7 @@
 if [ -z "$1" ]
   then
     echo "pass proxy as first command line argument"
-    echo "  e.g. ./digest_checker.sh http://proxy.gtn:3128"
+    echo "  e.g. ./proxy_cache_hypothesis_checker.sh http://proxy.gtn:3128"
     exit 1
   else
     PROXY=$1
@@ -14,7 +14,7 @@ if [ -z "$2" ]
     echo "pause is not appointed as second command line argument"
     PAUSE=1h
     echo "use the default value '$PAUSE'"
-    echo "to change it invoke the script in such way'./digest_checker.sh http://proxy.gtn:3128 30m'"
+    echo "to change it invoke the script in such way'./proxy_cache_hypothesis_checker.sh http://proxy.gtn:3128 30m'"
   else
     PAUSE=$2
 fi

@@ -5,6 +5,6 @@ VOLUME /usr/local/cspm161/downloaded_files
 
 RUN apt-get update && apt-get install -y curl
 
-ADD digest_checker.sh /usr/local/cspm161/digest_checker.sh
+ADD proxy_cache_hypothesis_checker.sh /usr/local/cspm161/proxy_cache_hypothesis_checker.sh
 
-ENTRYPOINT ["bash", "/usr/local/cspm161/digest_checker.sh"]
+ENTRYPOINT ["bash", "/usr/local/cspm161/proxy_cache_hypothesis_checker.sh"]
