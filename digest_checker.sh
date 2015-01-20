@@ -1,12 +1,22 @@
 #!/bin/bash
 
-if [ $# -eq 0 ]
+if [ -z "$1" ]
   then
-    echo "pass proxy as command line argment"
+    echo "pass proxy as first command line argument"
     echo "  e.g. ./digest_checker.sh http://proxy.gtn:3128"
     exit 1
   else
     PROXY=$1
+fi
+
+if [ -z "$2" ]
+  then
+    echo "pause is not appointed as second command line argument"
+    PAUSE=1h
+    echo "use the default value '$PAUSE'"
+    echo "to change it invoke the script in such way'./digest_checker.sh http://proxy.gtn:3128 30m'"
+  else
+    PAUSE=$2
 fi
 
 FILE_URLS_TO_CHECK[0]="http://xml.shavlik.com/data/partner/manifestAlt/partner.manifest.xml"
@@ -57,5 +67,5 @@ do
       mv ${filename_without_proxycache} ${filename_without_proxycache}.${current_timestamp}
     fi
   done
-  sleep 1h
+  sleep $PAUSE
 done
